@@ -1,14 +1,13 @@
-import React from "react";
-import "../stylesheets/main.scss";
+import React from 'react'
+import HelloWorld from './../containers/HelloWorld'
 
-// app component
-export default class App extends React.Component {
-  // render
+class App extends React.Component {
+
   render() {
     return (
-      <div className="container">
-        {this.props.children}
-      </div>
-    );
+      <HelloWorld />
+    )
   }
 }
+
+export default App
