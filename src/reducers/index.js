@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { HELLO_WORLD } from '../actions/index'
-
+import { routerReducer } from 'react-router-redux'
 
 function helloWorld(state = { message: 'Hello' }, action) {
   switch (action.type) {
@@ -12,8 +12,9 @@ function helloWorld(state = { message: 'Hello' }, action) {
   }
 }
 
-const rootReducer = combineReducers({
-  helloWorld
+const mainReducer = combineReducers({
+  helloWorld,
+  routing: routerReducer
 })
 
-export default rootReducer
+export default mainReducer
