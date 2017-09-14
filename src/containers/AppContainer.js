@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
 import { HELLO_WORLD } from './../actions'
-import Hello from '../components/Hello'
+import App from '../components/App'
+import { logoutAndRedirect } from '../actions/index'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    message: state.helloWorld.message,
     token: state.helloWorld.token
   }
 }
@@ -12,14 +12,14 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
-      dispatch({ type: HELLO_WORLD })
-    }
+      dispatch(logoutAndRedirect())
+    },
   }
 }
 
-const HelloWorld = connect(
+const AppContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Hello)
+)(App)
 
-export default HelloWorld
+export default AppContainer

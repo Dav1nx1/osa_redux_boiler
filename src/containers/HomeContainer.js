@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { HELLO_WORLD } from './../actions'
-import Hello from '../components/Hello'
+import HomePage from '../components/home/HomePage'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -17,9 +17,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const HelloWorld = connect(
+const HomeContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Hello)
+)(HomePage)
 
-export default HelloWorld
+export default HomeContainer
