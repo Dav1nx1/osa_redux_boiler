@@ -1,16 +1,36 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import configureStore from '../stores/index'
-import App from '../components/App'
+import AppContainer from './AppContainer';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
+import HelloWorld from './HelloWorld';
+import SmartDash from './SmartDash'
 
 const store = configureStore()
 
-export default class Root extends Component {
+class Root extends Component {
   render() {
+    console.log(this.props)
     return (
-      <Provider store={store}>
-        <App />
+      <Provider store={this.props.store}>
+        <Router history={this.props.history}>
+          <Route path="/" component={ AppContainer } >
+            <IndexRoute component= { SmartDash } />
+            <Route path="dashboard" component={ HelloWorld } />
+          </Route>
+        </Router>
       </Provider>
     )
   }
 }
+
+Root.propTypes = {
+  store: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
+}
+
+
+
+export default Root
