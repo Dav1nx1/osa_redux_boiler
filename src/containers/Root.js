@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import configureStore from '../stores/index'
-import NavContainer from './navContainer';
+import AppContainer from './AppContainer';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import HelloWorld from './HelloWorld';
@@ -15,7 +15,7 @@ class Root extends Component {
     return (
       <Provider store={this.props.store}>
         <Router history={this.props.history}>
-          <Route path="/" component={ NavContainer } history={this.props.history} >
+          <Route path="/" component={ AppContainer } history={this.props.history} >
             <IndexRoute component= { SmartDash } />
             <Route path="dashboard" component={ HelloWorld } />
           </Route>
