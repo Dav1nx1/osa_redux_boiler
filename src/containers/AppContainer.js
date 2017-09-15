@@ -30,10 +30,10 @@ class AppContainer extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                    <NavLink active href="/">Home</NavLink>
+                    <NavLink tag={Link} to="/" active>Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink active href="dashboard">Dashboard</NavLink>
+                  <NavLink tag={Link} to="/dashboard" active>Dashboard</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
